@@ -10,6 +10,7 @@
 // Double finalTIme = clock() -1
 
 // Overlap: decompose input to smaller signals and then combine components
+// Discard the imaginary part of the 
 
 #include <fstream>
 #include <iostream>

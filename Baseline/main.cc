@@ -505,7 +505,6 @@ int upper_power_of_two(int v)
 
 int main ( int argc, char *argv[] )
 {
-
     if ( argc < 4 ) 
     {
         cout<<"\n\nBad Args! Usage: convolve -inputWaveFile -IRfile -outputfile\n";
@@ -522,14 +521,12 @@ int main ( int argc, char *argv[] )
     inputData = readFileData(inputName);
     inputData.printHeader();
 
-
     // Read impulse WAV file
     cout <<"\n--------------------------------------------" << endl;
     cout <<"\nReading inpulse data:\n\n" << endl;
 	WaveFile impuseData;
     impuseData = readFileData(inpulseName);
     impuseData.printHeader();
-
 
     // output
     int outputFileSize = (impuseData.size + inputData.size) - 1;
@@ -545,9 +542,3 @@ int main ( int argc, char *argv[] )
 
     return 0;
 }
-
-    // Combine data into a large array
-    // int paddedOutputSize = pow(2, ceil(log(paddedInputSize + paddedImpulseSize)/log(2)));
-    // double* outputFileDataFast = new double[paddedOutputSize << 1];
-    // copy(paddedInputData, paddedInputData + paddedInputSize, outputFileDataFast); // add first chunk of data
-    // copy(paddedImpulseData, paddedImpulseData + paddedImpulseSize, outputFileDataFast + paddedInputSize); // add seccond chunk of data offset by first chunk
