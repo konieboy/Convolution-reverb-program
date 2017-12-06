@@ -609,9 +609,10 @@ int main ( int argc, char *argv[] )
 
     // Fill arrays with REAL part data
     // only copy to every seccond index
-    for (int i = 0 ; i <  inputData.size; i++) // Input data
+    for (int i = 0 ; i <  inputData.size - 2; i+= 2) // Input data
     {
         paddedInputData[i*2] = inputData.fileData[i];
+        paddedInputData[(i+1)*2] = inputData.fileData[i+1];
     }
 
     for (int i = 0 ; i <  impuseData.size; i++) // Impulse data
