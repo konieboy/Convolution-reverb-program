@@ -100,13 +100,14 @@ float* convolve(float x[], int N, float h[], int M, float y[], int P)
         {
             y[n+m] += x[n] * h[m];
         }
+        /* 
         if (t == 100000)
         {
             t = 0;
             cout << "x[" << n <<"]: " << x[n] << endl;
             cout << "h[" << m <<"]: " << h[m] << endl;
 
-        }
+        }*/ 
     } 
     return y;
 }
