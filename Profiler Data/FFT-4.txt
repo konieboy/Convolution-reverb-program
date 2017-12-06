@@ -3,19 +3,19 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls   s/call   s/call  name    
- 97.70      3.25     3.25        3     1.08     1.08  four1(float*, int, int)
-  1.20      3.29     0.04                             main
-  0.60      3.31     0.02        1     0.02     0.02  complexArrayMultiply(float*, float*, int)
-  0.30      3.32     0.01        2     0.01     0.01  readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
-  0.30      3.33     0.01        1     0.01     0.01  saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile)
-  0.00      3.33     0.00       66     0.00     0.00  std::sin(float)
-  0.00      3.33     0.00        4     0.00     0.00  WaveFile::WaveFile()
-  0.00      3.33     0.00        3     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
-  0.00      3.33     0.00        2     0.00     0.00  WaveFile::printHeader()
-  0.00      3.33     0.00        2     0.00     0.00  std::fpos<__mbstate_t>::fpos(long)
-  0.00      3.33     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z8convolvePfiS_iS_i
-  0.00      3.33     0.00        1     0.00     0.00  upper_power_of_two(int)
-  0.00      3.33     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+ 97.88      3.53     3.53        3     1.18     1.18  four1(float*, int, int)
+  1.11      3.57     0.04                             main
+  0.55      3.59     0.02        1     0.02     0.02  complexArrayMultiply(float*, float*, int)
+  0.28      3.60     0.01        2     0.01     0.01  readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      3.60     0.00       66     0.00     0.00  std::sin(float)
+  0.00      3.60     0.00        4     0.00     0.00  WaveFile::WaveFile()
+  0.00      3.60     0.00        3     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  0.00      3.60     0.00        2     0.00     0.00  WaveFile::printHeader()
+  0.00      3.60     0.00        2     0.00     0.00  std::fpos<__mbstate_t>::fpos(long)
+  0.00      3.60     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z8convolvePfiS_iS_i
+  0.00      3.60     0.00        1     0.00     0.00  saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile)
+  0.00      3.60     0.00        1     0.00     0.00  upper_power_of_two(int)
+  0.00      3.60     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -53,61 +53,61 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.30% of 3.33 seconds
+granularity: each sample hit covers 2 byte(s) for 0.28% of 3.60 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.04    3.29                 main [1]
-                3.25    0.00       3/3           four1(float*, int, int) [2]
+[1]    100.0    0.04    3.56                 main [1]
+                3.53    0.00       3/3           four1(float*, int, int) [2]
                 0.02    0.00       1/1           complexArrayMultiply(float*, float*, int) [3]
                 0.01    0.00       2/2           readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
-                0.01    0.00       1/1           saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [5]
-                0.00    0.00       2/4           WaveFile::WaveFile() [13]
-                0.00    0.00       2/2           WaveFile::printHeader() [15]
+                0.00    0.00       2/4           WaveFile::WaveFile() [12]
+                0.00    0.00       2/2           WaveFile::printHeader() [14]
                 0.00    0.00       1/1           upper_power_of_two(int) [18]
+                0.00    0.00       1/1           saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [17]
 -----------------------------------------------
-                3.25    0.00       3/3           main [1]
-[2]     97.6    3.25    0.00       3         four1(float*, int, int) [2]
-                0.00    0.00      66/66          std::sin(float) [12]
+                3.53    0.00       3/3           main [1]
+[2]     98.1    3.53    0.00       3         four1(float*, int, int) [2]
+                0.00    0.00      66/66          std::sin(float) [11]
 -----------------------------------------------
                 0.02    0.00       1/1           main [1]
 [3]      0.6    0.02    0.00       1         complexArrayMultiply(float*, float*, int) [3]
 -----------------------------------------------
                 0.01    0.00       2/2           main [1]
 [4]      0.3    0.01    0.00       2         readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
-                0.00    0.00       2/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [14]
-                0.00    0.00       2/2           std::fpos<__mbstate_t>::fpos(long) [16]
-                0.00    0.00       2/4           WaveFile::WaveFile() [13]
------------------------------------------------
-                0.01    0.00       1/1           main [1]
-[5]      0.3    0.01    0.00       1         saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [5]
-                0.00    0.00       1/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [14]
+                0.00    0.00       2/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [13]
+                0.00    0.00       2/2           std::fpos<__mbstate_t>::fpos(long) [15]
+                0.00    0.00       2/4           WaveFile::WaveFile() [12]
 -----------------------------------------------
                 0.00    0.00      66/66          four1(float*, int, int) [2]
-[12]     0.0    0.00    0.00      66         std::sin(float) [12]
+[11]     0.0    0.00    0.00      66         std::sin(float) [11]
 -----------------------------------------------
                 0.00    0.00       2/4           readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
                 0.00    0.00       2/4           main [1]
-[13]     0.0    0.00    0.00       4         WaveFile::WaveFile() [13]
+[12]     0.0    0.00    0.00       4         WaveFile::WaveFile() [12]
 -----------------------------------------------
-                0.00    0.00       1/3           saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [5]
+                0.00    0.00       1/3           saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [17]
                 0.00    0.00       2/3           readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
-[14]     0.0    0.00    0.00       3         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [14]
+[13]     0.0    0.00    0.00       3         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [13]
 -----------------------------------------------
                 0.00    0.00       2/2           main [1]
-[15]     0.0    0.00    0.00       2         WaveFile::printHeader() [15]
+[14]     0.0    0.00    0.00       2         WaveFile::printHeader() [14]
 -----------------------------------------------
                 0.00    0.00       2/2           readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [4]
-[16]     0.0    0.00    0.00       2         std::fpos<__mbstate_t>::fpos(long) [16]
+[15]     0.0    0.00    0.00       2         std::fpos<__mbstate_t>::fpos(long) [15]
 -----------------------------------------------
                 0.00    0.00       1/1           __libc_csu_init [32]
-[17]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z8convolvePfiS_iS_i [17]
+[16]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z8convolvePfiS_iS_i [16]
                 0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [19]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[17]     0.0    0.00    0.00       1         saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [17]
+                0.00    0.00       1/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [13]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
 [18]     0.0    0.00    0.00       1         upper_power_of_two(int) [18]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I__Z8convolvePfiS_iS_i [17]
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z8convolvePfiS_iS_i [16]
 [19]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [19]
 -----------------------------------------------
 
@@ -201,8 +201,8 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [17] _GLOBAL__sub_I__Z8convolvePfiS_iS_i [19] __static_initialization_and_destruction_0(int, int) [12] std::sin(float)
-   [4] readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [2] four1(float*, int, int) [14] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
-   [5] saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [15] WaveFile::printHeader() [1] main
-  [18] upper_power_of_two(int) [13] WaveFile::WaveFile()
-   [3] complexArrayMultiply(float*, float*, int) [16] std::fpos<__mbstate_t>::fpos(long)
+  [16] _GLOBAL__sub_I__Z8convolvePfiS_iS_i [19] __static_initialization_and_destruction_0(int, int) [11] std::sin(float)
+   [4] readFileData(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [2] four1(float*, int, int) [13] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [17] saveWaveFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float*, WaveFile) [14] WaveFile::printHeader() [1] main
+  [18] upper_power_of_two(int) [12] WaveFile::WaveFile()
+   [3] complexArrayMultiply(float*, float*, int) [15] std::fpos<__mbstate_t>::fpos(long)
