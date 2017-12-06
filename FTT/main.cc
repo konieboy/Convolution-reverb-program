@@ -612,10 +612,29 @@ int main ( int argc, char *argv[] )
     // Run post processing at end
     // Scale down operation
 
-    // Note: Unroll this later
-    for (int i = 0 ; i < sizeInputData; i++) 
+    // Unroll by 20
+    for (int i = 0 ; i < sizeInputData; i += 20)
     {
         finalFTT[i] /= (float)sizeInputData;
+        finalFTT[i+1] /= (float)sizeInputData;
+        finalFTT[i+2] /= (float)sizeInputData;
+        finalFTT[i+3] /= (float)sizeInputData;
+        finalFTT[i+4] /= (float)sizeInputData;
+        finalFTT[i+5] /= (float)sizeInputData;
+        finalFTT[i+6] /= (float)sizeInputData;
+        finalFTT[i+7] /= (float)sizeInputData;
+        finalFTT[i+8] /= (float)sizeInputData;
+        finalFTT[i+9] /= (float)sizeInputData;
+        finalFTT[i+10] /= (float)sizeInputData;
+        finalFTT[i+11] /= (float)sizeInputData;
+        finalFTT[i+12] /= (float)sizeInputData;
+        finalFTT[i+13] /= (float)sizeInputData;
+        finalFTT[i+14] /= (float)sizeInputData;
+        finalFTT[i+15] /= (float)sizeInputData;
+        finalFTT[i+16] /= (float)sizeInputData;
+        finalFTT[i+17] /= (float)sizeInputData;
+        finalFTT[i+18] /= (float)sizeInputData;
+        finalFTT[i+19] /= (float)sizeInputData;
     }
 
     // for (int i = 0 ; i <  inputData.size && i < 100; i++) // Input data
