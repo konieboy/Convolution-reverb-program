@@ -139,33 +139,17 @@ float* four1(float data[], int nn, int isign)
     n = nn << 1;
     j = 1;
 
-    for (i = 1; i < n; i += 10) // Partially unrolling loop 
+    for (i = 1; i < n; i += 2) // Partially unrolling loop 
     {
         if (j > i) 
         {
             SWAP(data[j], data[i]);
             SWAP(data[j+1], data[i+1]);
 
-            SWAP(data[j+2], data[i+2]);
-            SWAP(data[j+3], data[i+3]);
-
-            SWAP(data[j+4], data[i+4]);
-            SWAP(data[j+5], data[i+5]);
-
-            SWAP(data[j+6], data[i+6]);
-            SWAP(data[j+7], data[i+7]);
-
-            SWAP(data[j+8], data[i+8]);
-            SWAP(data[j+9], data[i+9]);
-
-            SWAP(data[j+10], data[i+10]);
-            SWAP(data[j+11], data[i+11]);
-
-
         }
 
         m = nn;
-        while (m >= 8 && j > m) // m>= 2n
+        while (m >= 2 && j > m) // m>= 2n
         {
             j -= m;
             m >>= 1;
@@ -185,7 +169,7 @@ float* four1(float data[], int nn, int isign)
         wi = 0.0;
 	    for (m = 1; m < mmax; m += 2) 
         {
-            for (i = m; i <= n; i += istep) 
+            for (i = m; i < n - istep; i += (istep +istep))
             {
                 j = i + mmax;
                 tempr = wr * data[j] - wi * data[j+1];
@@ -194,6 +178,14 @@ float* four1(float data[], int nn, int isign)
                 data[j+1] = data[i+1] - tempi;
                 data[i] += tempr;
                 data[i+1] += tempi;
+                
+                j = i + istep + mmax;
+                tempr = wr * data[j] - wi * data[j+1];
+                tempi = wr * data[j+1] + wi * data[j];
+                data[j] = data[i+istep] - tempr;
+                data[j+1] = data[i+istep+1] - tempi;
+                data[i+istep] += tempr;
+                data[i+istep+1] += tempi;
             }
             wr = (wtemp = wr) * wpr - wi * wpi + wr;
             wi = wi * wpr + wtemp * wpi + wi;
