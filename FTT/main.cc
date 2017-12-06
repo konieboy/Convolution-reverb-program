@@ -139,17 +139,16 @@ float* four1(float data[], int nn, int isign)
     n = nn << 1;
     j = 1;
 
-    for (i = 1; i < n; i += 2) // Partially unrolling loop 
+    for (i = 1; i < n; i += 2) 
     {
         if (j > i) 
         {
             SWAP(data[j], data[i]);
             SWAP(data[j+1], data[i+1]);
-
         }
 
         m = nn;
-        while (m >= 2 && j > m) // m>= 2n
+        while (m >= 2 && j > m) 
         {
             j -= m;
             m >>= 1;
@@ -169,7 +168,7 @@ float* four1(float data[], int nn, int isign)
         wi = 0.0;
 	    for (m = 1; m < mmax; m += 2) 
         {
-            for (i = m; i < n - istep; i += (istep +istep))
+            for (i = m; i <= n; i += istep) 
             {
                 j = i + mmax;
                 tempr = wr * data[j] - wi * data[j+1];
@@ -178,14 +177,6 @@ float* four1(float data[], int nn, int isign)
                 data[j+1] = data[i+1] - tempi;
                 data[i] += tempr;
                 data[i+1] += tempi;
-                
-                j = i + istep + mmax;
-                tempr = wr * data[j] - wi * data[j+1];
-                tempi = wr * data[j+1] + wi * data[j];
-                data[j] = data[i+istep] - tempr;
-                data[j+1] = data[i+istep+1] - tempi;
-                data[i+istep] += tempr;
-                data[i+istep+1] += tempi;
             }
             wr = (wtemp = wr) * wpr - wi * wpi + wr;
             wi = wi * wpr + wtemp * wpi + wi;
@@ -495,7 +486,7 @@ WaveFile readFileData (string fileName)
 // Multiply the contents of two arrays filled with complex doubles together
 float* complexArrayMultiply (float X[], float H[], int length)
 {
-    float* output = new float[2 * length]; // X + H + 1
+    double* output = new double[2 * length]; // X + H + 1
 
     for (int i = 0 ; i < length; i++)
     {
@@ -503,9 +494,16 @@ float* complexArrayMultiply (float X[], float H[], int length)
         output[i] = ((X[i] * H[i]) - (X[i+1] * H[i+1]));
         // Get imaginary component
         output[i+1] = ((X[i] * H[i+1]) + (X[i+1] * H[i]));      
-    }   
+    }
+    
+    float* outputFloat = new float[2 * length];
 
-    return output;
+    for (int i = 0 ; i < length; i++)
+    {
+        outputFloat[i] = (float) output[i];
+    }
+
+    return outputFloat;
 }
 // Code from http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
 // Find the upper bounded upper 2^n
@@ -573,46 +571,17 @@ int main ( int argc, char *argv[] )
 
     // Pad arrays with zero values
     // They must be the same size or else you get MONKEY TROUBLE
-    for(int i = 0; i < arraySize - 10; i+=10) 
+    for(int i = 0; i < arraySize; i++) 
     {
 		paddedInputData[i] = 0.0;			
 		paddedImpulseData[i] = 0.0;
-
-        paddedInputData[i+1] = 0.0;			
-		paddedImpulseData[i+1] = 0.0;
-
-        paddedInputData[i+2] = 0.0;			
-		paddedImpulseData[i+2] = 0.0;
-
-        paddedInputData[i+3] = 0.0;			
-		paddedImpulseData[i+3] = 0.0;
-
-        paddedInputData[i+4] = 0.0;			
-		paddedImpulseData[i+4] = 0.0;
-
-        paddedInputData[i+5] = 0.0;			
-		paddedImpulseData[i+5] = 0.0;
-
-        paddedInputData[i+6] = 0.0;			
-		paddedImpulseData[i+6] = 0.0;
-
-        paddedInputData[i+7] = 0.0;			
-		paddedImpulseData[i+7] = 0.0;
-
-        paddedInputData[i+8] = 0.0;			
-		paddedImpulseData[i+8] = 0.0;
-
-        paddedInputData[i+9] = 0.0;			
-		paddedImpulseData[i+9] = 0.0;
-
 	}	
 
     // Fill arrays with REAL part data
     // only copy to every seccond index
-    for (int i = 0 ; i <  inputData.size - 2; i+= 2) // Input data
+    for (int i = 0 ; i <  inputData.size; i++) // Input data
     {
         paddedInputData[i*2] = inputData.fileData[i];
-        paddedInputData[(i+1)*2] = inputData.fileData[i+1];
     }
 
     for (int i = 0 ; i <  impuseData.size; i++) // Impulse data
@@ -633,29 +602,10 @@ int main ( int argc, char *argv[] )
     // Run post processing at end
     // Scale down operation
 
-    // Unroll by 20
-    for (int i = 0 ; i < sizeInputData - 20; i += 20)
+    // Note: Unroll this later
+    for (int i = 0 ; i < sizeInputData; i++) 
     {
         finalFTT[i] /= (float)sizeInputData;
-        finalFTT[i+1] /= (float)sizeInputData;
-        finalFTT[i+2] /= (float)sizeInputData;
-        finalFTT[i+3] /= (float)sizeInputData;
-        finalFTT[i+4] /= (float)sizeInputData;
-        finalFTT[i+5] /= (float)sizeInputData;
-        finalFTT[i+6] /= (float)sizeInputData;
-        finalFTT[i+7] /= (float)sizeInputData;
-        finalFTT[i+8] /= (float)sizeInputData;
-        finalFTT[i+9] /= (float)sizeInputData;
-        finalFTT[i+10] /= (float)sizeInputData;
-        finalFTT[i+11] /= (float)sizeInputData;
-        finalFTT[i+12] /= (float)sizeInputData;
-        finalFTT[i+13] /= (float)sizeInputData;
-        finalFTT[i+14] /= (float)sizeInputData;
-        finalFTT[i+15] /= (float)sizeInputData;
-        finalFTT[i+16] /= (float)sizeInputData;
-        finalFTT[i+17] /= (float)sizeInputData;
-        finalFTT[i+18] /= (float)sizeInputData;
-        finalFTT[i+19] /= (float)sizeInputData;
     }
 
     // for (int i = 0 ; i <  inputData.size && i < 100; i++) // Input data

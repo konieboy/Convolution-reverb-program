@@ -1,0 +1,89 @@
+commit 81ab82ae5dbb595462ad002988815b6aaf48d7f6
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 22:57:29 2017 -0700
+
+    Added Compiler Op
+
+commit 86904f83d566b71fbef69e5034e0bd076c3135f3
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 22:28:47 2017 -0700
+
+    Added 5th speedup
+
+commit f528d373f90d175b456b73de545bdd10a9b12608
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 22:02:35 2017 -0700
+
+    Added speedup 4
+
+commit 23e71053b6a75622a443bec7a90904f1a6c3bbeb
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 21:49:04 2017 -0700
+
+    Added regression tests
+
+commit 1c9be1c8b2e9719d886d928fe412e5fbb738c461
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 21:27:40 2017 -0700
+
+    fixed static bug
+
+commit f44e5af2812db4fc269c3bc1907e98b4c3797afb
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 19:56:51 2017 -0700
+
+    Tweak #3
+
+commit 2a3ee4d1d3d843804958ad9b233e16a9c75dc93f
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 19:08:43 2017 -0700
+
+    Partially unrolled loop
+
+commit e3d26720b10e1eddb0c672b5b1365b167590bf99
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 18:25:52 2017 -0700
+
+    Unnessary conversions tuning
+
+commit fbce64e307c77827de934213c9fab41ae05e6bb9
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 17:53:34 2017 -0700
+
+    Added FFT Algorithm program
+
+commit 5af9da66cb7069c8da69fb837dbd7360636f10d7
+Author: kmwisnie <kmwisnie@ZONE22-WD>
+Date:   Tue Dec 5 17:29:13 2017 -0700
+
+    Baseline created
+
+commit 4b90bff41f54687374087fe87a9d8ad56a726ce3
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 16:15:20 2017 -0700
+
+    Adding all finals
+
+commit c3279e643c241a17eb717d3c9c52f4ce9bbeab17
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 15:14:03 2017 -0700
+
+    Small tweaks
+
+commit 7abcebbdfdd124624afe0124e3f8e41fd745c182
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 15:00:51 2017 -0700
+
+    finished boi
+
+commit 737b52db0d0af9d7ad176891269a5c1539a8b319
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Dec 5 13:23:19 2017 -0700
+
+    Working code
+
+commit 99b03abcc00f8c12b28cbb512aac9260d4381765
+Author: Honeybee <Sempiwartortle@MacBook-Pro-2.local>
+Date:   Tue Nov 28 10:45:41 2017 -0700
+
+    adding files
