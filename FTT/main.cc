@@ -484,19 +484,26 @@ WaveFile readFileData (string fileName)
 }
 
 // Multiply the contents of two arrays filled with complex doubles together
-double* complexArrayMultiply (float X[], float H[], int length)
+float* complexArrayMultiply (float X[], float H[], int length)
 {
     double* output = new double[2 * length]; // X + H + 1
 
     for (int i = 0 ; i < length; i++)
     {
         // Get real component
-        output[i] = (double)((X[i] * H[i]) - (X[i+1] * H[i+1]));
+        output[i] = ((X[i] * H[i]) - (X[i+1] * H[i+1]));
         // Get imaginary component
-        output[i+1] = (double)((X[i] * H[i+1]) + (X[i+1] * H[i]));      
+        output[i+1] = ((X[i] * H[i+1]) + (X[i+1] * H[i]));      
+    }
+    
+    float* outputFloat = new float[2 * length];
+
+    for (int i = 0 ; i < length; i++)
+    {
+        outputFloat[i] = (float) output[i];
     }
 
-    return output;
+    return outputFloat;
 }
 // Code from http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
 // Find the upper bounded upper 2^n
@@ -587,7 +594,7 @@ int main ( int argc, char *argv[] )
     float* H = four1 (paddedImpulseData - 1, sizeInputData, 1);
 
     // Multiply together to get Y[n]
-    double* complexRes = complexArrayMultiply(X, H, sizeInputData);
+    float* complexRes = complexArrayMultiply(X, H, sizeInputData);
 
     // Run Reverse FTT on combined array
     float* finalFTT = four1 ((float*)complexRes - 1, sizeInputData, -1);
