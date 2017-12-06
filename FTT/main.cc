@@ -486,7 +486,7 @@ WaveFile readFileData (string fileName)
 // Multiply the contents of two arrays filled with complex doubles together
 float* complexArrayMultiply (float X[], float H[], int length)
 {
-    double* output = new double[2 * length]; // X + H + 1
+    float* output = new float[2 * length]; // X + H + 1
 
     for (int i = 0 ; i < length; i++)
     {
@@ -494,16 +494,9 @@ float* complexArrayMultiply (float X[], float H[], int length)
         output[i] = ((X[i] * H[i]) - (X[i+1] * H[i+1]));
         // Get imaginary component
         output[i+1] = ((X[i] * H[i+1]) + (X[i+1] * H[i]));      
-    }
-    
-    float* outputFloat = new float[2 * length];
+    }   
 
-    for (int i = 0 ; i < length; i++)
-    {
-        outputFloat[i] = (float) output[i];
-    }
-
-    return outputFloat;
+    return output;
 }
 // Code from http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
 // Find the upper bounded upper 2^n
